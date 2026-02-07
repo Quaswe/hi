@@ -1,51 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Click Me 👀</title>
 
-  <!-- Confetti library -->
+  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
     body {
       height: 100vh;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #container {
+      max-width: 90%;
     }
 
     button {
-      padding: 20px 40px;
-      font-size: 24px;
+      padding: 18px 36px;
+      font-size: 22px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       cursor: pointer;
       background: white;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
     }
 
-    button:hover {
-      transform: scale(1.05);
+    #surprise {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    img {
+      max-width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-top: 15px;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-  <button onclick="party()">Click me 🎉</button>
+  <div id="container">
+    <button onclick="showSurprise()">Don't click it</button>
+
+    <div id="surprise">
+      <img src="your-image.jpg" alt="Surprise" />
+      <h2>You made it 💖</h2>
+      <p style="color:white;">Just wanted to make you smile today 😊</p>
+    </div>
+  </div>
 
   <script>
-    function party() {
+    function showSurprise() {
       confetti({
-        particleCount: 150,
-        spread: 70,
+        particleCount: 200,
+        spread: 80,
         origin: { y: 0.6 }
       });
 
-      alert("Surprise! 😄");
+      document.querySelector("button").style.display = "none";
+      document.getElementById("surprise").style.display = "block";
     }
   </script>
 </body>
