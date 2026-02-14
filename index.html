@@ -44,7 +44,7 @@
 
 <body>
 
-  <button onclick="showFirst()">Click Me</button>
+  <button onclick="showFirst()">i can't reply to you on messenger na, just open it</button>
 
   <div id="surprise"></div>
 
@@ -54,8 +54,8 @@
   function showFirst() {
     document.getElementById("surprise").innerHTML = `
       <img src="aius.jpg">
-      <p id="message">You found the first surprise 💖</p>
-      <button id="growBtn" onclick="growButton()">Don't click it anymore</button>
+      <p id="message">i'll make it up to you soon 💖</p>
+      <button id="growBtn" onclick="growButton()">Don't go deep</button>
     `;
   }
 
@@ -70,13 +70,13 @@
 
     // Change text every click
     if (clickCount === 1) {
-      message.textContent = "i said don't click it!! 😏";
+      message.textContent = "you're gonna regret this 😏";
     } else if (clickCount === 2) {
       message.textContent = "i hope we don't get caught. 👀";
     } else if (clickCount === 3) {
       document.getElementById("surprise").innerHTML = `
         <img src="image2.jpg">
-        <p>Final surprise unlocked ✨💖</p>
+        <p>if life feels heavy, just remember that you still have me, my aius. ✨</p>
       `;
     }
   }
