@@ -53,8 +53,8 @@
 
   function showFirst() {
     document.getElementById("surprise").innerHTML = `
-      <img src="aius.jpg">
-      <p id="message">i'll make it up to you soon 💖</p>
+      <img src="image1.jpg">
+      <p>i'll make it up to you soon 💖</p>
       <button id="growBtn" onclick="growButton()">Don't go deep</button>
     `;
   }
@@ -63,16 +63,15 @@
     clickCount++;
 
     const btn = document.getElementById("growBtn");
-    const message = document.getElementById("message");
 
     // Make button bigger
     btn.style.transform = `scale(${1 + clickCount * 0.3})`;
 
-    // Change text every click
+    // Change button text each click
     if (clickCount === 1) {
-      message.textContent = "you're gonna regret this 😏";
+      btn.textContent = "you're gonna regret this 👀";
     } else if (clickCount === 2) {
-      message.textContent = "i hope we don't get caught. 👀";
+      btn.textContent = "i hope we don't get caught. 😳";
     } else if (clickCount === 3) {
       document.getElementById("surprise").innerHTML = `
         <img src="image2.jpg">
@@ -81,3 +80,4 @@
     }
   }
 </script>
+
