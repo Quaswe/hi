@@ -1,84 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Click Me 👀</title>
-
-  <!-- Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-  <style>
-    body {
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    #container {
-      max-width: 90%;
-    }
-
-    button {
-      padding: 18px 36px;
-      font-size: 22px;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      background: white;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    #surprise {
-      display: none;
-      margin-top: 20px;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    img {
-      max-width: 300px;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    h2 {
-      margin-top: 15px;
-      color: #fff;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <title>Surprise</title>
 </head>
-
 <body>
-  <div id="container">
-    <button onclick="showSurprise()">Click me if you miss me</button>
 
-    <div id="surprise">
-      <img src="./aius.jpg" alt="Hi" />
-      <h2> my future lovey love </h2>
-      <p style="color:white;">if things feels heavy, just remember you still have me 🫶 </p>
-    </div>
-  </div>
+  <button onclick="showFirst()">Click Me</button>
+
+  <div id="surprise"></div>
 
   <script>
-    function showSurprise() {
-      confetti({
-        particleCount: 200,
-        spread: 80,
-        origin: { y: 0.6 }
-      });
+    function showFirst() {
+      document.getElementById("surprise").innerHTML = `
+        <img src="image1.jpg" width="300"><br>
+        <p>You found the first surprise 💖</p>
+        <button onclick="showSecond()">Click Again</button>
+      `;
+    }
 
-      document.querySelector("button").style.display = "none";
-      document.getElementById("surprise").style.display = "block";
+    function showSecond() {
+      document.getElementById("surprise").innerHTML = `
+        <img src="image2.jpg" width="300"><br>
+        <p>This is the second surprise 😏</p>
+      `;
     }
   </script>
+
 </body>
 </html>
