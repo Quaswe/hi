@@ -4,22 +4,26 @@
   <title>Surprise</title>
   <style>
     body {
-      text-align: center;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       font-family: Arial, sans-serif;
-      background-color: #fce4ec;
-      padding-top: 50px;
+      background: #fce4ec;
+      text-align: center;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 10px;
+      padding: 12px 25px;
+      font-size: 18px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       background-color: #ff4081;
       color: white;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     button:hover {
@@ -28,7 +32,7 @@
 
     img {
       width: 300px;
-      margin-top: 15px;
+      margin-top: 20px;
       border-radius: 12px;
     }
 
@@ -44,22 +48,36 @@
 
   <div id="surprise"></div>
 
-  <script>
-    function showFirst() {
-      document.getElementById("surprise").innerHTML = `
-        <img src="aius.jpg">
-        <p>You found the first surprise 💖</p>
-        <button onclick="showSecond()">Click Again</button>
-      `;
-    }
+ <script>
+  let clickCount = 0;
 
-    function showSecond() {
+  function showFirst() {
+    document.getElementById("surprise").innerHTML = `
+      <img src="aius.jpg">
+      <p id="message">You found the first surprise 💖</p>
+      <button id="growBtn" onclick="growButton()">Don't click it anymore</button>
+    `;
+  }
+
+  function growButton() {
+    clickCount++;
+
+    const btn = document.getElementById("growBtn");
+    const message = document.getElementById("message");
+
+    // Make button bigger
+    btn.style.transform = `scale(${1 + clickCount * 0.3})`;
+
+    // Change text every click
+    if (clickCount === 1) {
+      message.textContent = "i said don't click it!! 😏";
+    } else if (clickCount === 2) {
+      message.textContent = "i hope we don't get caught. 👀";
+    } else if (clickCount === 3) {
       document.getElementById("surprise").innerHTML = `
         <img src="image2.jpg">
-        <p>This is the second surprise 😏</p>
+        <p>Final surprise unlocked ✨💖</p>
       `;
     }
-  </script>
-
-</body>
-</html>
+  }
+</script>
